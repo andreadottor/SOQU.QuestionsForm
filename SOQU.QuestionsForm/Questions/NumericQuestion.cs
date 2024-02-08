@@ -6,9 +6,24 @@ public class NumericQuestion : IQuestion
 {
     public int Id { get; set; }
     public string Text { get; set; }
+
+    public bool IsRequired { get; set; }
+
     public string AskQuestion()
     {
-        var response = AnsiConsole.Ask<int>(Text);
-        return response.ToString();
+        Console.WriteLine(Text);
+        string? input = Console.ReadLine();
+        /*
+        (IsRequired && string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _) ||
+        (!IsRequired && !string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _))
+        */
+        while ((IsRequired && (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out _)) ||
+              (!IsRequired && !string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _))))
+        {
+            Console.WriteLine("Risposta obbligatoria o formato errato");
+            input = Console.ReadLine();
+        }
+        return input ?? string.Empty;
+        
     }
 }

@@ -7,11 +7,19 @@ namespace SOQU.QuestionsForm.Questions
         public int Id { get; set; }
 
         public string Text { get; set; }
+
+        public bool IsRequired { get; set; }
+
         public string AskQuestion()
         {
             Console.WriteLine(Text);
-            string input=Console.ReadLine();
-            return input;
+            string? input=Console.ReadLine();
+            while(IsRequired && string.IsNullOrWhiteSpace(input)) 
+            {
+                Console.WriteLine("Risposta obbligatoria");
+                input = Console.ReadLine();
+            }
+            return input ?? string.Empty;
         }
     }
 }
