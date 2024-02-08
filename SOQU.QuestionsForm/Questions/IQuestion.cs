@@ -5,6 +5,6 @@ interface IQuestion
 {
     int Id { get; }
     string Text { get; }
-    public bool IsRequired { get; }
+    bool IsRequired { get; }
     string AskQuestion();
 }
