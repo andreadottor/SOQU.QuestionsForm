@@ -14,6 +14,11 @@ emailQuestion.Id = 2;
 emailQuestion.Text = "inserisci l'email";
 questions.Add(emailQuestion);
 
+var ageQuestion = new NumericQuestion();
+ageQuestion.Id = 3;
+ageQuestion.Text = "inserisci l'età";
+questions.Add(ageQuestion);
+
 Console.WriteLine("START");
 foreach (var question in questions)
 {
