@@ -4,8 +4,15 @@ var questions = new List<IQuestion>();
 var responses = new Dictionary<int, string>();
 
 // TODO: Add questions to the list
+var nameQuestion = new TextQuestion();
+nameQuestion.Id = 1;
+nameQuestion.Text = "inserire il nome";
+questions.Add(nameQuestion);
 
-
+var emailQuestion = new TextQuestion();
+emailQuestion.Id = 2;
+emailQuestion.Text = "inserisci l'email";
+questions.Add(emailQuestion);
 
 Console.WriteLine("START");
 foreach (var question in questions)
