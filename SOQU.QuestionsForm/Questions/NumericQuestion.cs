@@ -9,16 +9,14 @@ public class NumericQuestion : IQuestion
 
     public bool IsRequired { get; set; }
 
+
     public string AskQuestion()
     {
         Console.WriteLine(Text);
         string? input = Console.ReadLine();
-        /*
-        (IsRequired && string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _) ||
-        (!IsRequired && !string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _))
-        */
-        while ((IsRequired && (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out _)) ||
-              (!IsRequired && !string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _))))
+
+        while ((IsRequired && (string.IsNullOrWhiteSpace(input) || !int.TryParse(input, out _))) ||
+              (!IsRequired && !string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _)))
         {
             Console.WriteLine("Risposta obbligatoria o formato errato");
             input = Console.ReadLine();
