@@ -7,6 +7,7 @@ var responses = new Dictionary<int, string>();
 var nameQuestion = new TextQuestion();
 nameQuestion.Id = 1;
 nameQuestion.Text = "inserire il nome";
+nameQuestion.IsRequired = true;
 questions.Add(nameQuestion);
 
 var emailQuestion = new TextQuestion();
@@ -17,6 +18,7 @@ questions.Add(emailQuestion);
 var ageQuestion = new NumericQuestion();
 ageQuestion.Id = 3;
 ageQuestion.Text = "inserisci l'età";
+ageQuestion.IsRequired = false;
 questions.Add(ageQuestion);
 
 Console.WriteLine("START");
